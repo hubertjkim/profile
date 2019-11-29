@@ -1,3 +1,38 @@
 h1 {
   font-size: 36px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+
+  /*block level element*/
+  border-top:1px black solid;
+  margin-top:20px;
+  padding:10px;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+}
+
+#grid{
+  /* border:15px solid pink; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+ul,ol{
+  padding-left:30px;
+  /* border: 1px solid gray; */
+  /* width: 300px; */
+}
+
+body {
+  margin: 20px;
+}
+.visited {
+  color:gray;
+  font-weight: bold;
 }
