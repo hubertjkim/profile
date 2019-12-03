@@ -1,26 +1,51 @@
+
+/* Web page main title*/
 h1 {
   font-size: 36px;
   text-align: center;
 }
 
+/* Each page title*/
 h2 {
   font-size: 24px;
 
   /*block level element*/
   border-top:1px black solid;
   margin-top:20px;
+  margin-bottom:5px;
   padding:10px;
 }
+
+/* Each page subtitle*/
+h3 {
+  font-size: 20px;
+  padding-left:10px;
+  margin:0px;
+}
+
 
 a {
   color:black;
   text-decoration: none;
 }
 
-#grid{
+
+/*body font size*/
+bodyFont {
+  font-size: 1.2em;
+}
+
+
+#grid_head{
   /* border:15px solid pink; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+#grid_body{
+  /* border:15px solid pink; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 ul,ol{
