@@ -1,4 +1,9 @@
 
+/* To use the image's original orientation*/
+img {
+    image-orientation: from-image;
+}
+
 /* Web page main title*/
 h1 {
   font-size: 36px;
