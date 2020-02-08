@@ -34,7 +34,7 @@
     <div style="text-align:center;">
       <br>Phone: (917)834-0377 <br>E-mail: hk1540@vt.edu
       <br>Resume:<a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>click here</u></a>
-      <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjk/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
+      <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
       <br>Meetme:<a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>click here</u></a>
     </div>
 
@@ -49,6 +49,14 @@
   <h3> Overivew </h3>
   <bodyFont>
     <!-- <p style ="margin-top:45px;"> -->
+    <p>
+      Ph.D. candidate trained for 4+ years in the start-up robotics laboratory, with hands-on experience of
+      the robot development and ability to lead a project independently. Expertise in the following fields:
+      <br>
+     &nbsp; • Embedded Systems Programming &nbsp; • Fast Prototyping: Wearable Device &nbsp;
+     • Signal Processing &nbsp; • Human Subject Research
+    </p>
+
     <!-- <p> The objective of my research is to understand the characteristics of
       human-robot interaction through haptic information transfer between user and
       robot. It involves not only robot augmenting humans but also identifying
@@ -64,18 +72,6 @@
       smart robot enabling mutual interaction. Under this context, robot should
     model human behavior, which varies per every user. </p> -->
 
-    <p> My current recent research topic is to evaluate kinesthetic feedback as another type of haptic feedback device.
-    Haptic feedback devices are those that convey
-    haptic information through the sense of touch. Usually, they consist of
-    vibrating motors (like in most cell phones or video game controllers)
-    or force-feedback joysticks (where the joystick pushes back on the user).
-    The new device we are making will use a soft sleeve to apply small
-    forces to a person's joint. The device should feel like a person gently
-    guiding your arm to a certain position. The device subjects wear apply
-     forces to the elbow of less than 5% of the maximum force that a typical
-     adult male can generate at their elbow.</p>
-
-
       <!-- <p>  To understand how a new haptic
       feedback device guides a person's joint to a certain angle, I wish to
       develop the idea into the following questions further. 1) When
@@ -90,19 +86,38 @@
 
   <div id="grid_body">
     <bodyFont>
-      <p>As pursuing my ph.D. under the supervision of Dr. Alan T. Asbeck in Virginia Tech,
+      <!-- <p>As pursuing my ph.D. under the supervision of Dr. Alan T. Asbeck in Virginia Tech,
         I developed a wearable testbed to understand the human perceptual
         property against kinesthetic sensations (a). The idea behind the project is
         to <b>implement the kinesthetic cue as a haptic information
           transfer to guide/correct arm motion</b>, just like the physical
-        therapists aiding patients' vonlutray motion.</p>
+        therapists aiding patients' vonlutray motion.</p> -->
 
-       <p>When Dr. Asbeck and I started Assistive Robotics Lab in Fall 2015,
+        <p> My current recent research topic is to evaluate kinesthetic feedback as another type of haptic feedback device.
+        Haptic feedback devices are those that convey
+        haptic information through the sense of touch. Usually, they consist of
+        vibrating motors (like in most cell phones or video game controllers)
+        or force-feedback joysticks (where the joystick pushes back on the user).
+        Among thoese, kinesthetic feedback is well-known for its ability of intuitive and natural guidance, yet
+        appropriate intensity of the kinesthetic input at which the wearer cannot be hindered is still not explored.</p>
+
+        <p>
+        I am developing a paradigm of the kinesthetic cue as a means of information transfer in arm motion training without disturbing the wearer.
+        In other words, people will move their arm in response to the applied torque, yet the applied torques are too small to disturb the motion.
+
+        To accomplish the goal, I discretize the idea into two study topics: 1)
+         when people start noticing that the device is providing force to
+         their joint; 2) explore how sensitive trainee is to torque
+         feedback in time and frequency domain  to joint torques in terms of
+         how fast their arm will move.
+        </p>
+
+       <!-- <p>When Dr. Asbeck and I started Assistive Robotics Lab in Fall 2015,
         our high-level goal was to realize a comfortable, light-weight, and low-
         cost wearable device for assisting our daily life. In contrast to the
         full-body-support system, <b>the device only provides partial
           guidance</b> to the user, with a torque smaller than the human
-        strength.
+        strength. -->
         <!-- After several prototypes of the exoskeleton, however, we
         realized that it would have been better if there existed any criteria on
         a kinesthetic cue in the scope of haptic delivery to be the guideline
@@ -110,20 +125,22 @@
         design problem into the perceptual level, rather than approaching it
         as finding the minimum volume of the actuator or manipulator mechanism,
         would be the first step toward the partial assistance system.  -->
-        <br>
 
-       Developing a wearable device requires knowledge of Field Oriented
-        Control in motor control ((b) and (c)), as well as basic human physiology as how to
-        perceive extrinsic kinesthetic stimuli.</p>
-      <p> To accomplish the goal, we broken down the project into 1)
-        <b>when people start noticing that the device is providing force to
-        their joint</b>; 2) explore the <b>how sensitive trainee are to torque
-        feedback in time and frequency domain</b>  to joint torques in terms of
-        how fast their arm will move. People will move their arm in response to
-        the applied torque, yet the applied torques are too small to disturb the motion.
-        The research has been mainly funded by the Institute for Critical
-        Technology and Applied Science (ICTAS) scholarship.
-      </p>
+      <p>The new device I made uses a soft sleeve to apply small
+      forces to a person's joint<font color="blue"><b>(a)</b></font>. The device should feel like a person gently
+      guiding your arm to a certain position. The device subjects wear apply
+       forces to the elbow of less than 5% of the maximum force that a typical
+       adult male can generate at their elbow.
+
+        Challenges of hardware design here (hardware requirements)
+        (torque stiffness and the parasitic torque)
+
+        The test result easily transferable to other exoskeleton design process for the elbow joint.
+
+
+      Developing a wearable device that requires knowledge of Vector
+       Control in motor control ( <font color="blue"><b>(b)</b></font> and  <font color="blue"><b>(c)</b></font>), as well as basic human physiology as how to
+       perceive extrinsic kinesthetic stimuli (i.e. joint proprioceptors).</p>
     </bodyFont>
 
     <div>
@@ -137,18 +154,28 @@
 
   <div id="grid_body">
     <bodyFont>
-      <p> During the time of an undergraduate researcher in the NYU Tandon Dynamics Systems Laboratory under
-        Professor Maurizio Porfiri, I worked with Dr. Youngsu Cha in the energy
-        harvesting team. </p>
-      <p> The major research topic of the team was to examine the electro-
-        mechanical property of smart materials, specifically Piezoelectric and
-        Ionic Polymer Metallic Composite (IPMC). Along with the fabrication of
-        IPMCs, I built test setups for 1) underwater base excitation of the Piezoelectric
-        composite (a), 2) underwater biomimetic shark swimming with Piezoelectric
-        composite attached (b), and 3) impedance matching test for IPMCs (c).
-        The data was collected with a Data
-        Acquisition board from National Instrument and post-processed with
-        MATLAB and Mathematica, to be compared with the calculated model. </p>
+      <p> During the time of an undergraduate researcher in the NYU Tandon
+         Dynamics Systems Laboratory, I worked in the energy
+        harvesting team. The major research topic of the team was to examine the electro-
+      mechanical transfer functions of smart materials, specifically Piezoelectric and
+      Ionic Polymer Metallic Composite (IPMC). </p>
+      <p>
+      Both IPMCs and Piezoelectric composites share the same property of
+      generating electricity when it is deformed and actuating when it is electrified.
+      The primary difference is the medium deliveryng those electricity. Unlike the electron charge of the Piezoelectric composite, IPMCs
+      requires ions to transfer the electricity, and therefore only functions under ionized water.
+      Therefore, setting the proper density of the IPMCs when fabriacting plays the key role and requires much practice to
+      make a successful materials.</p>
+
+      <p> All the experimental setup I designed was to investigate/measure the smart materials in oscillatory motion, then to be analyzed in the
+        time and frequency domain in terms of transfer functions.
+        It includes: 1) underwater base excitation of the Piezoelectric
+        composite <font color="blue"><b>(a)</b></font>, 2) underwater biomimetic shark swimming with Piezoelectric
+        composite attached <font color="blue"><b>(b)</b></font>, and 3) impedance matching test for IPMCs <font color="blue"><b>(c)</b></font>. </p>
+
+        <p> The data was collected with a Data Acquisition board from National
+          Instrument and high-speed camera, then post-processed with
+        MATLAB and Mathematica, to be compared with the theoretical model. </p>
     </bodyFont>
 
     <div>
