@@ -7,44 +7,63 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> HumanPerception </title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap');
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+  </style>
 </head>
 
-<body>
-  <h1>Hubert Kim, Ph.D.</h1>
+<body style="margin:100px;padding:40px">
+  <h1><a href="index.html" title="Home">Hubert Kim, Ph.D.</a>     <br><br></h1>
 
-  <!-- <div id='active'></div> -->
-  <div id="grid_head">
+  <!-- <div id="grid_head">
     <nav>
       <ol>
-        <li><a href="index.html" title="Home">Curriculum Vitae</a></li>
-        <li><a href="hardwareX.html">Partial-assistive Actuator</a></li>
-        <!-- <li><a href="HI.html">Human Interface: Design and Identification</a></li> -->
-        <li><a href="JND.html" class="visited">How large should the JTF be?</a></li>
-        <li><a href="JTDstiffness.html">What JTF condition leads to the best tracking? </a></li>
-        <!-- <li><a href="User_Interface.html">User Interface</a></li>
-        <li><a href="Other_projects.html">Other Projects</a></li> -->
+        <li><a href="index.html" title="Home">Research Experience</a></li>
+        <li><a href="hardwareX.html">Product Developement</a></li>
+        <li><a href="JND.html" class="visited">Human-centered Research: Human Perception in Wearables</a></li>
+        <li><a href="JTDstiffness.html">Frequency-domain analysis</a></li>
       </ol>
     </nav>
 
-    <div style="text-align:center;">
+    <div style="text-align:right;">
+      <p>
       <br>Phone: (917)834-0377 <br>E-mail: jk.hubert.k@gmail.com
       <br>Resume:<a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>click here</u></a>
       <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
       <br>Meetme:<a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>click here</u></a>
+      </p>
     </div>
-
-    <div>
-      <img style="padding-right: 0px; float: right;  object-fit: cover; max-width: 100px;" src="Hubert.jpg">
-    </div>
-  </div>
+  </div> -->
 
   <h2>
-    <strong>Arm Simulation</strong>
+    <strong>HUMAN SUBJECT TESTING</strong>
   </h2>
 
-  <div id="grid_body">
+
+  <h3> PROBLEM DEFINITION </h3>
+
+  <div id="grid_body_indx">
     <bodyFont>
-      <p> Hardware </p>
+      <p> To implement wearables in our daily life applications, understanding
+        human perception against the wearables should be preceded. Among other
+        haptic sensors, we specifically targeted the two joint receptors
+         (proprioceptors):
+      <ul>
+      <li> Muscle Spindle- measures the length and speed change of the msucle fibers. </li>
+       <li> Golgi Tendon Organ- detects the tension of the muscle fibers. </li>
+     </ul>
+
+
+      </p>
 
     </bodyFont>
 
@@ -55,9 +74,20 @@
     </div>
   </div>
 
-  <div id="grid_body">
+  <h3> TEST SETUP</h3>
+
+  <div id="grid_body_indx">
     <bodyFont>
-      <p> Hardware </p>
+      <p> Therefore, following
+    joint conditions are explored during the test:
+    <ul>
+    <li> when arm is fully constrained (isometrically) by external forces. </li>
+     <li> When arm is freely posed at neutral angle (90 degrees). </li>
+     <li> When arm is moving under the certain speed. </li>
+   </ul>
+   During above conditions are applied, we measured the subjects' responses with respect to
+   ther exoskeleton's torque.
+       </p>
 
     </bodyFont>
 
@@ -68,25 +98,14 @@
     </div>
   </div>
 
+  <h3> DEMONSTRATION </h3>
   <div id="grid_body">
-    <bodyFont>
-      <p> Hardware </p>
-
-    </bodyFont>
-
     <center>
     <video width="320" height="240" autoplay muted loop>
       <source src="JNDstatic.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
     </center>
-  </div>
-
-  <div id="grid_body">
-    <bodyFont>
-      <p> Hardware </p>
-
-    </bodyFont>
 
     <center>
     <video width="320" height="240" autoplay muted loop>
@@ -111,7 +130,15 @@
     </center>
     </div>
   </div> -->
-
+  <br><br><br><br><br>
+  <hr>
+  <div id="grid_body_bottom4">
+  <div> <a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>Resume</u></a> </div>
+  <div> <a href="mailto:jk.hubert.k@gmail.com" subject="subject text" target="_blank" title="Resume pdf file"><u>E-mail me</u></a> </div>
+  <div> <a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>LinkedIn</u></a> </div>
+  <div> <a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>MeetMe</u></a> </div>
+  <div> (917) 834-0377 </div>
+  </div>
 
 
 </body>

@@ -7,43 +7,48 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> HardwareX </title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap');
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+  </style>
 </head>
 
-<body>
+<body style="margin:100px;padding:40px">
 
 <!-- *************************************************************************** -->
-  <h1>Hubert Kim, Ph.D.</h1>
+  <h1><a href="index.html" title="Home">Hubert Kim, Ph.D.</a>    <br><br></h1>
 
-  <!-- <div id='active'></div> -->
-  <div id="grid_head">
+  <!-- <div id="grid_head">
     <nav>
       <ol>
-        <li><a href="index.html" title="Home">Curriculum Vitae</a></li>
-        <li><a href="hardwareX.html" class="visited">Partial-assistive Actuator</a></li>
-        <li><a href="JND.html">How large should the JTF be?</a></li>
-        <li><a href="JTDstiffness.html">What JTF condition leads to the best tracking? </a></li>
-        <!-- <li><a href="HI.html">Human Interface: Design and Identification</a></li>
-        <li><a href="ArmSim.html">Arm Simulation and JND Requirements</a></li>
-        <li><a href="User_Interface.html">User Interface</a></li>
-        <li><a href="Other_projects.html">Other Projects</a></li>         -->
+        <li><a href="index.html" title="Home">Research Experience</a></li>
+        <li><a href="hardwareX.html" class="visited">Product Developement: Partial-assistive Actuator</a></li>
+        <li><a href="JND.html">Human-centered Research</a></li>
+        <li><a href="JTDstiffness.html">Frequency-domain analysis </a></li>
       </ol>
     </nav>
 
-    <div style="text-align:center;">
+    <div style="text-align:right;">
+      <p>
       <br>Phone: (917)834-0377 <br>E-mail: jk.hubert.k@gmail.com
       <br>Resume:<a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>click here</u></a>
       <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
       <br>Meetme:<a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>click here</u></a>
+    </p>
     </div>
-
-    <div>
-      <img style="padding-right: 0px; float: right;  object-fit: cover; max-width: 100px;" src="Hubert.jpg">
-    </div>
-  </div>
+  </div> -->
 <!-- *************************************************************************** -->
 
   <h2>
-    <strong>Hardware</strong>
+    <strong>PRODUCT DEVELOPMENT</strong>
   </h2>
 
 <!-- <table>
@@ -61,9 +66,17 @@
 </tr>
 </table> -->
 
-<div id="grid_body">
+<div id="grid_body_indx">
   <bodyFont>
-    <p> Hardware </p>
+    <p style="text-align:left;">The fabrication of the joint actuator could be
+       achieved by iterations of rapid-prototyping. <br>It involves:
+       <ul>
+       <li> Choosing the actuator mechanism. </li>
+       <li> Motor Sizing (required output speed and torque).</li>
+       <li> Conceptualizing with sketches and cardboard-mockups. </li>
+       <li> Prototyping with aluminums, plastics, and hand tools.  </li>
+       </ul>
+  </p>
 
   </bodyFont>
 
@@ -74,7 +87,7 @@
   </div>
 </div>
 
-<div id="grid_body">
+<div id="grid_body_indx">
   <div>
   <center>
     <img src="schematic.png" width="70%">
@@ -82,14 +95,33 @@
   </div>
 
   <bodyFont>
-    <p> Hardware </p>
+    <p> The primary embedded coding was realized with TI microcontrollers <br>
+      (c2000-TMS320F28069M).
+      <br>
+      The detailed works include:
+      <ul>
+      <li> Setting the interrupt priorities of the peripherals.</li>
+      <li> Clock configurations. </li>
+      <li> Finite State Machine for SCI real-time communication. </li>
+      </ul>
+    </p>
 
   </bodyFont>
 </div>
 
-<div id="grid_body">
+<div id="grid_body_indx">
   <bodyFont>
-    <p> Hardware </p>
+    <p> Key feature of the product is to figure out Initial Pose Detection
+    of the BLDC motor without using the hall-sensor. This was achieved by:
+    <ul>
+    <li> Pre-define the variable of the index pin of the Optical Encoder.</li>
+    <li> As powering up the actuator system (and encoder), let the wearer swing the arm until hitting the index pin. </li>
+    <li> As soon as hitting the index pin, the mechanical position is refreshed with the corrected position. </li>
+    <li> The electrical angle is also updated according to the pole-pair number of the BLDC motor.</li>
+    </ul>
+
+   </p>
+
 
   </bodyFont>
 
@@ -100,7 +132,7 @@
   </div>
 </div>
 
-  <h3> Hardware Demonstration </h3>
+  <h3> HARDWARE DEMONSTRATION </h3>
   <bodyFont>
     <!-- <p style ="margin-top:45px;"> -->
     <!-- <p> The hardware </p> -->
@@ -114,7 +146,7 @@
     <source src="Linkedin_Media_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
   </video>
-<br>
+<!-- <br> -->
   <video width="320" height="240" autoplay muted loop>
     <source src="hardwareDemo_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -125,10 +157,17 @@
   Your browser does not support the video tag.
   </video>
 
-  <h3> Prototypes </h3>
-<div id="grid_body">
+  <h3> PROTOTYPES </h3>
+<div id="grid_body_indx">
   <bodyFont>
-    <p> Hardware </p>
+    <p> Prototyped various actuator mechanisms, including:
+       <ul>
+       <li> pulley-driven.</li>
+       <li> geared motor. </li>
+       <li> full soft-sleeve. </li>
+       <li> direct-drive.</li>
+       </ul>
+    </p>
 
   </bodyFont>
 
@@ -137,6 +176,16 @@
     <img src="prototype.PNG" width="50%">
   </center>
   </div>
+</div>
+
+<br><br><br><br><br>
+<hr>
+<div id="grid_body_bottom4">
+<div> <a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>Resume</u></a> </div>
+<div> <a href="mailto:jk.hubert.k@gmail.com" subject="subject text" target="_blank" title="Resume pdf file"><u>E-mail me</u></a> </div>
+<div> <a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>LinkedIn</u></a> </div>
+<div> <a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>MeetMe</u></a> </div>
+<div> (917) 834-0377 </div>
 </div>
 
 </body>

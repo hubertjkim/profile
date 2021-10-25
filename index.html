@@ -10,65 +10,83 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> Hubert's Portfolio </title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap');
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+  </style>
 </head>
 
-<body>
+<body style="margin:100px;padding:40px">
 
   <!-- *************************************************************************** -->
-  <h1>Hubert Kim, Ph.D.</h1>
+  <h1>
+    <div style="text-align:center;">
+    Hubert Kim, Ph.D.
+    <br><br>
+    </div>
+  </h1>
 
   <!-- <div id='active'></div> -->
-  <div id="grid_head">
+  <!-- <div id="grid_head">
     <nav>
       <ol>
-        <li><a href="index.html" title="Home" class="visited">Curriculum Vitae</a></li>  <!--research agenda-->
-        <li><a href="hardwareX.html">Partial-assistive Actuator</a></li>
-        <li><a href="JND.html">How large should the JTF be?</a></li>
-        <li><a href="JTDstiffness.html">What JTF condition leads to the best tracking? </a></li>
-        <!-- <li><a href="MEC.html">Mechatronics & Embedded Coding</a></li>
-        <li><a href="HI.html">Human Interface: Design and Identification</a></li>
-        <li><a href="ArmSim.html">Arm Simulation and JND Requirements</a></li>
-        <li><a href="User_Interface.html">User Interface</a></li>
-        <li><a href="Other_projects.html">Other Projects</a></li> -->
+        <li><a href="index.html" title="Home" class="visited">Research Experience</a></li>
+        <li><a href="hardwareX.html">Product Developement</a></li>
+        <li><a href="JND.html">Human-centered Research</a></li>
+        <li><a href="JTDstiffness.html">Frequency-domain analysis</a></li>
       </ol>
     </nav>
 
-    <div style="text-align:center;">
+    <div style="text-align:right;">
       <br>Phone: (917)834-0377 <br>E-mail: jk.hubert.k@gmail.com
       <br>Resume:<a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>click here</u></a>
       <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
       <br>Meetme:<a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>click here</u></a>
     </div>
-
-    <div>
-      <img style="padding-right: 0px; float: right;  object-fit: cover; max-width: 100px;" src="Hubert.jpg">
-    </div>
-  </div>
+  </div> -->
   <!-- *************************************************************************** -->
 
-  <h2> <strong>Haptic Engineer | Mechatronicist | Experimental Roboticist</strong> </h2>
+  <div id="grid_body">
+    <img style="padding-right: 0px; float: left;  object-fit: cover; max-width: 250px;" src="Hubert.jpg">
+     <!-- <img src="Hubert.jpg" style="max-width: 200px;" class="center"> -->
 
-  <h3> Summary </h3>
+  <!-- <h2> <strong>Haptic Researcher | Mechatronicist | Experimental Roboticist</strong> </h2> -->
+
+  <!-- <h3> SUMMARY </h3> -->
   <bodyFont>
     <!-- <p style ="margin-top:45px;"> -->
     <p>
-      A self-motivated haptic engineer from a start-up robotics laboratory, with proficiency in fast-prototyping with various actuators/sensors/User Interfaces to investigate human-robot interaction. Seeks to join a research team with a fast-paced, project-driven environment to enhance the mutual perception between humans and robots. In the previous project, proposed a novel paradigm of implementing joint torque as a means to guide a motion and evaluated its performance under various physiological conditions via a frequency -domain analysis and a statistical tool.
+      Welcome to my personal webpage. <br>
+      I'm a haptic researcher who earned my Ph.D. degree
+      from the <a href="https://www.assistiveroboticslab.com/" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Assistive Robotics Laboratory (ARL)</a>
+      at Virginia Tech.
+      With
+       <a href="https://autonomyandrobotics.centers.vt.edu/people/asbeck.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dr. Alan Asbeck</a>,
+      we established the hardware robotic laboratory,
+      where I led the Arm Haptic Feedback team throughout the R&D process
+      unto measuring the scientific findings.
     </p>
 
-    <!-- <p> The objective of my research is to understand the characteristics of
-      human-robot interaction through haptic information transfer between user and
-      robot. It involves not only robot augmenting humans but also identifying
-      the properties of the human in the system. <br>
-       My current recent research has been focused on learning the user
-      perception via physical human-robot-interaction. Using fast-prototyping
-      skills, mechatronics, and signal processing experience, I am exploring
-      the minimum requirements for users to perceive and how much bandwidth the human
-      arm-robot system can handle.
-      Based on the physiological/psychological knowledge from human subject testing,
-      I aim to expand on understanding more complex robot behavior through human-robot
-      interaction. It is currently one way pHRI but my future work is to make it
-      smart robot enabling mutual interaction. Under this context, robot should
-    model human behavior, which varies per every user. </p> -->
+    <p> The objective of my research is to understand the characteristics of
+      human-robot interaction through physical touch.
+      My research endeavor began with analyzing <a href="hardwareX.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer"> hardware requirements</a>
+     for the wearable robot to deliver transparent torque.
+     The development of the custom-made actuator was inevitable to discover
+     <a href="JND.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">the minimum requirements for the
+     human perception</a> during the robot-mediated training.
+     Based on the perceptual boundaries, I analyzed the
+     <a href="JTDstiffness.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">bandwidth the human
+          arm-robot system can handle</a>.
+   </p>
 
       <!-- <p>  To understand how a new haptic
       feedback device guides a person's joint to a certain angle, I wish to
@@ -77,12 +95,23 @@
       joint, and 2) how sensitive people are to this type of feedback.
       </p> -->
 
+      <p>
+        Previously, I researched in
+        <a href="https://wp.nyu.edu/dsl/" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dynamics Systems Laboratory</a>
+        at NYU Tandon under the supervision of
+        <a href="https://engineering.nyu.edu/faculty/maurizio-porfiri" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dr. Maurizio Porfiri</a>.
+        My primary role was to apply Signal Processing techniques on smart materials,  specifically Piezoelectric and
+        Ionic Polymer Metallic Composite (IPMC) such that we could
+        characterize electromechanical property of the smart material and validate the physics-based models.
+      </p>
 
   </bodyFont>
+</div>
 
-  <h3> Recent Project </h3>
+  <!-- <h3> RECENT PROJECT </h3> -->
 
-  <div id="grid_body">
+  <!-- <div id="grid_body"> -->
+  <div>
     <bodyFont>
       <!-- <p>As pursuing my ph.D. under the supervision of Dr. Alan T. Asbeck in Virginia Tech,
         I developed a wearable testbed to understand the human perceptual
@@ -91,25 +120,26 @@
           transfer to guide/correct arm motion</b>, just like the physical
         therapists aiding patients' vonlutray motion.</p> -->
 
-        <p> My current recent research topic is to evaluate kinesthetic feedback as another type of haptic feedback device.
-        Haptic feedback devices are those that convey
-        haptic information through the sense of touch. Usually, they consist of
-        vibrating motors (like in most cell phones or video game controllers)
-        or force-feedback joysticks (where the joystick pushes back on the user).
-        Among thoese, kinesthetic feedback is well-known for its ability of intuitive and natural guidance, yet
-        appropriate intensity of the kinesthetic input at which the wearer cannot be hindered is still not explored.</p>
+        <!-- <p> My recent research topic has been evaluating the foundational discoveries
+          for a portable daily-life healthcare product, a wearable physical therapist.
+        </p> -->
 
+        <br>
+        <h3> Publications and presentation: </h3>
         <p>
-        I am developing a paradigm of the kinesthetic cue as a means of information transfer in arm motion training without disturbing the wearer.
-        In other words, people will move their arm in response to the applied torque, yet the applied torques are too small to disturb the motion.
-
-        To accomplish the goal, I discretize the idea into two study topics: 1)
-         when people start noticing that the device is providing force to
-         their joint; 2) explore how sensitive trainee is to torque
-         feedback in time and frequency domain  to joint torques in terms of
-         how fast their arm will move.
+        <ul>
+          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"The Effects of Torque Magnitude and Stiffness in Arm Guidance through Joint Torque Feedback."</i></b> in IEEE Access, [Under review].</li>
+          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"Just Noticeable Differences for Elbow Joint Torque Feedback."</i></b> Sci Rep, [Under review].</li>
+          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"An elbow exoskeleton for haptic feedback made with a direct drive hobby motor."</i></b> HardwareX 8, e00153(2020).  <a href="https://www.sciencedirect.com/science/article/pii/S2468067220300626" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
+          <li>  <u>Kim, H.,</u> Guo, H., Asbeck, A., <b><i>"Just Noticeable Differences for Joint Torque Feedback During Static Poses."</i></b> 2020 IEEE International Conference on Robotics and Automation (ICRA), 2020, pp. 11096-11102. <a href="https://ieeexplore.ieee.org/document/9197537" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
+          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"Light-weight Exoskeleton for Haptic Feedback."</i></b> Presented at IEEE/RSJ International Conference on Intelligent Robots and Systems, Daejeon, Republic of Korea, Oct 9-14, 2016; poster 1832</a></li>
+          <li> <u>Kim, H.,</u> Cha, Y., Porfiri, M.; 2016; <b><i>”Voltage attenuation along the electrodes of ionic polymer metalcomposites.”</i></b> J.of Intell Mater Syst Struct, 27(17), 2426-2430 <a href="https://journals.sagepub.com/doi/abs/10.1177/1045389X15620045?journalCode=jima" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
+          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2013: <b><i>"Energy harvesting from underwater base excitation of a piezoelectric composite beam."</i></b> Smart Materials and Structures 22(11), 115026 <a href=" https://iopscience.iop.org/article/10.1088/0964-1726/22/11/115026/meta" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
+          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2014: <b><i>"Influence of temperature on the impedance of ionic polymer metal composites."</i></b> Materials Letters 133, 179-182 <a href="https://www.researchgate.net/publication/264050709_Influence_of_temperature_on_the_impedance_of_ionic_polymer_metal_composites" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
+          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2014: <b><i>"Matching the impedance of ionic polymer metal composites for energy harvesting."</i></b> Smart Materials and Structures 23(12), 127002 <a href="https://www.researchgate.net/publication/268156978_Matching_the_impedance_of_ionic_polymer_metal_composites_for_energy_harvesting" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
+          <li> Cha, Y., Chae, W., <u>Kim, H.,</u> Walcott, H., Peterson, S.: <b><i>"Energy harvesting from a piezoelectric biomimetic fish tail."</i></b> Renewable Energy 86, 449–458 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0960148115301737" class = "hyplnkd">[Link]</a> </li>
+        </ul>
         </p>
-
        <!-- <p>When Dr. Asbeck and I started Assistive Robotics Lab in Fall 2015,
         our high-level goal was to realize a comfortable, light-weight, and low-
         cost wearable device for assisting our daily life. In contrast to the
@@ -124,7 +154,7 @@
         as finding the minimum volume of the actuator or manipulator mechanism,
         would be the first step toward the partial assistance system.  -->
 
-      <p>The new device I made uses a soft sleeve to apply small
+      <!-- <p>The new device I made uses a soft sleeve to apply small
       forces to a person's joint<font color="blue"><b>(a)</b></font>. The device should feel like a person gently
       guiding your arm to a certain position. The device subjects wear apply
        forces to the elbow of less than 5% of the maximum force that a typical
@@ -138,49 +168,57 @@
 
       Developing a wearable device that requires knowledge of Vector
        Control in motor control ( <font color="blue"><b>(b)</b></font> and  <font color="blue"><b>(c)</b></font>), as well as basic human physiology as how to
-       perceive extrinsic kinesthetic stimuli (i.e. joint proprioceptors).</p>
+       perceive extrinsic kinesthetic stimuli (i.e. joint proprioceptors).</p> -->
     </bodyFont>
 
-    <div>
+    <!-- <div>
       <center>
-        <img src="researchgoal.PNG" width="70%">
+        <img src="researchgoal.PNG" width="70%" style="max-width: 500px;">
       </center>
-    </div>
+    </div> -->
   </div>
 
-  <h3> Former Project </h3>
+  <br><br><br>
+  <hr>
+  <div id="grid_body_bottom4">
+  <div> <a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>Resume</u></a> </div>
+  <div> <a href="mailto:jk.hubert.k@gmail.com" subject="subject text" target="_blank" title="Resume pdf file"><u>E-mail me</u></a> </div>
+  <div> <a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>LinkedIn</u></a> </div>
+  <div> <a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>MeetMe</u></a> </div>
+  <div> (917) 834-0377 </div>
+  </div>
 
-  <div id="grid_body">
-    <bodyFont>
-      <p> During the time of an undergraduate researcher in the NYU Tandon
-         Dynamics Systems Laboratory, I worked in the energy
-        harvesting team. The major research topic of the team was to examine the electro-
-      mechanical transfer functions of smart materials, specifically Piezoelectric and
-      Ionic Polymer Metallic Composite (IPMC). </p>
-      <p>
-      Both IPMCs and Piezoelectric composites share the same property of
+  <!-- <h3> FORMER PROJECT </h3> -->
+
+  <!-- <div id="grid_body"> -->
+  <!-- <div>
+    <bodyFont> -->
+
+
+      <!-- <p> -->
+      <!-- Both IPMCs and Piezoelectric composites share the same property of
       generating electricity when it is deformed and actuating when it is electrified.
       The primary difference is the medium deliveryng those electricity. Unlike the electron charge of the Piezoelectric composite, IPMCs
       requires ions to transfer the electricity, and therefore only functions under ionized water.
       Therefore, setting the proper density of the IPMCs when fabriacting plays the key role and requires much practice to
-      make a successful materials.</p>
+      make a successful materials.</p> -->
 
-      <p> All the experimental setup I designed was to investigate/measure the smart materials in oscillatory motion, then to be analyzed in the
+      <!-- <p> All the experimental setup I designed was to investigate/measure the smart materials in oscillatory motion, then to be analyzed in the
         time and frequency domain in terms of transfer functions.
-        It includes: 1) underwater base excitation of the Piezoelectric
-        composite <font color="blue"><b>(a)</b></font>, 2) underwater biomimetic shark swimming with Piezoelectric
-        composite attached <font color="blue"><b>(b)</b></font>, and 3) impedance matching test for IPMCs <font color="blue"><b>(c)</b></font>. </p>
+        It includes: underwater base excitation of the Piezoelectric
+        composite  2) underwater biomimetic shark swimming with Piezoelectric
+        composite attached, and 3) impedance matching test for IPMCs. </p>
 
         <p> The data was collected with a Data Acquisition board from National
           Instrument and high-speed camera, then post-processed with
-        MATLAB and Mathematica, to be compared with the theoretical model. </p>
-    </bodyFont>
+        MATLAB and Mathematica, to be compared with the theoretical model. </p> -->
+    <!-- </bodyFont> -->
 
-    <div>
+    <!-- <div>
       <center>
-        <img src="old_research_summary.png" width="70%">
+        <img src="old_research_summary.png" width="70%" style="max-width: 500px;">
       </center>
-    </div>
+    </div> -->
   </div>
 
 </body>
