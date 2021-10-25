@@ -1,6 +1,14 @@
 
 @import url(//fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap);
 
+
+@media (min-width: 500px) and (max-width: 600px) {
+  h1 {
+    color: blue;
+  }
+}
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 /*for mobile friendly*/
 
@@ -71,7 +79,6 @@ a {
 bodyFont {
   font-size: 1.0em;
 }
-
 
 #grid_head{
   /* border:15px solid pink; */
