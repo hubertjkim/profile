@@ -22,7 +22,7 @@ hr {
 </head>
 
 <body style="margin:100px;padding:40px">
-  <h1><a href="index.html" title="Home">Hubert Kim, Ph.D.</a>     <br><br></h1>
+  <h1><a href="index.html" title="Home">Hubert's Portfolio, Human Perception Study</a>     <br><br></h1>
 
   <!-- <div id="grid_head">
     <nav>
@@ -45,39 +45,44 @@ hr {
   </div> -->
 
   <h2>
-    <strong>HUMAN SUBJECT TESTING</strong>
+    <strong></strong>
   </h2>
 
 
-  <h3> PROBLEM DEFINITION </h3>
+  <h3> Goal </h3>
 
   <div id="grid_body_indx">
     <bodyFont>
-      <p> To implement wearables in our daily life applications, understanding
-        human perception against the wearables should be preceded. Among other
-        haptic sensors, we specifically targeted the two joint receptors
-         (proprioceptors):
-      <ul>
-      <li> <b>Muscle Spindle</b> measures the length and speed change of the msucle fibers. </li>
-       <li> <b>Golgi Tendon Organ</b> detects the tension of the muscle fibers. </li>
-     </ul>
-
-
-      </p>
-
+      <p class="noMarginAfter" style="text-align:left;"> We want to know the minimum point where people can start detecting
+         and responding to the applied torque. This torque input could <b>maximize the information transfer </b>regarding how much
+         and when to move the body. The applied torque can be above this threshold during the motion training, but not too
+          much. Or else, the robot might affect the wearer's motion. We hypothesized:</p>
+      <ul class="customIndent">
+        <li> If the arm is preloaded, <b>as if you're holding some heavy objects,</b> the perceptual threshold would be increased. </li>
+        <li> If the <b>arm is moving,</b> the required torque threshold should be stronger. </li>
+      </ul>
     </bodyFont>
 
     <div>
     <center>
-      <img src="JTFconcept.PNG" width="70%">
+      <img src="JND_goal.PNG" width="70%">
     </center>
     </div>
   </div>
 
-  <h3> TEST SETUP</h3>
+
 
   <div id="grid_body_indx">
-    <bodyFont>
+    <div>
+      <h3> Experiment for "when arm is preloaded" </h3>
+    <center>
+      <img src="JND_static.PNG" width="70%">
+    </center>
+    </div>
+
+
+    <!-- <bodyFont>
+
       <p> Therefore, following
     joint conditions are explored during the test: </p>
     <ul>
@@ -88,23 +93,23 @@ hr {
     <p>
        We measured the subjects' perceptual responses to the exoskeleton's torque during the above conditions.
       </p>
-    </bodyFont>
+    </bodyFont> -->
 
-    <div>
-    <center>
-      <img src="JNDsetups.PNG" width="70%">
-    </center>
-    </div>
-  </div>
-
-  <h3> DEMONSTRATION </h3>
-  <div id="grid_body">
     <center>
     <video width="320" height="240" autoplay muted loop>
       <source src="JNDstatic.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
     </center>
+  </div>
+
+  <div id="grid_body_indx">
+    <div>
+      <h3> Experiment for "when arm is moving" </h3>
+    <center>
+      <img src="JND_dynamic.PNG" width="70%">
+    </center>
+    </div>
 
     <center>
     <video width="320" height="240" autoplay muted loop>
@@ -113,6 +118,9 @@ hr {
     </video>
     </center>
   </div>
+
+
+
 
   <!-- <h3> Results </h3>
 

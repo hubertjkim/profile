@@ -23,7 +23,7 @@ hr {
 
 <body style="margin:100px;padding:40px">
   <h1>
-<a href="index.html" title="Home">Hubert Kim, Ph.D.</a>
+<a href="index.html" title="Home">Hubert's Portfolio, Human Bandwidth Study</a>
     <br><br></h1>
 
   <!-- <div id='active'></div> -->
@@ -49,33 +49,48 @@ hr {
   </div> -->
 
   <h2>
-    <strong>ANALYSIS OF THE TRACKING PERFORMANCE</strong>
+    <strong></strong>
   </h2>
-
-
-  <h3> PROBLEM DEFINITION </h3>
 
 
 <div id="grid_body_indx">
   <bodyFont>
-    <p> PD controller is one of the most common low-level controllers in pHRI. Yet, not much of the study has been made as to how well people track the wearable robot's guidance. Thus, we explored human responses during the various types of robot guidance under different torque stiffness. </p>
+    <h3> Goal </h3>
+    <p class="noMarginAfter" style="text-align:left;">
+      We want to answer this question, <b>how does the bandwidth change with the
+        amount of torque we applied?</b> From the simple motion like in-home
+        yoga to skate boarding, more complicated movement requires higher bandwidth.
+        We want to answer this question <b>in the domain of very small applied
+          torque region</b> because we don't want to influence the motion too much.
+          The detailed research questions in this experiment are:
+    </p>
 
+    <ul class="customIndent">
+      <li> what bandwidth of the motion can we guide somebody <b>with small torque?</b> </li>
+      <li> what kind of delays are there? </li>
+    </ul>
+    <p class="noMarginBefore" style="text-align:left;">
+      This questions are meaningful in the application-wise because small torque domain is
+      directly relevant to the actuator profile, which is cirtical for the
+      wearable robot.
+    </p>
   </bodyFont>
 
   <div>
   <center>
-    <img src="stiffnessConcept.png" width="70%">
+    <img src="stiffness_goal.png" width="70%">
   </center>
   </div>
 </div>
 
-  <h3> DEMONSTRATION </h3>
 
-<div id="grid_body">
-  <bodyFont>
-    <p> From the experiment, we discovered the active joint stiffness and what levels of stiffness is optimal for guiding a human arm. </p>
-
-  </bodyFont>
+<div id="grid_body_indx">
+  <div>
+    <h3> Experiment for Frequency Response with Small Torque </h3>
+  <center>
+    <img src="Stiffness_data.PNG" width="70%">
+  </center>
+  </div>
 
   <center>
   <video width="320" height="240" autoplay muted loop>
@@ -84,6 +99,10 @@ hr {
   </video>
   </center>
 </div>
+
+
+
+
 
 <p>
  <u>Kim, H.,</u> Asbeck, A., <b><i>"The Effects of Torque Magnitude and Stiffness in Arm Guidance through Joint Torque Feedback."</i></b> in in IEEE Access, doi: 10.1109/ACCESS.2022.3141981.<a href="https://ieeexplore.ieee.org/document/9676678" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a>

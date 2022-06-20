@@ -24,7 +24,7 @@ hr {
 <body style="margin:100px;padding:40px">
 
 <!-- *************************************************************************** -->
-  <h1><a href="index.html" title="Home">Hubert Kim, Ph.D.</a>    <br><br></h1>
+  <h1><a href="index.html" title="Home">Hubert's Portfolio, Hardware Experience</a>    <br><br></h1>
 
   <!-- <div id="grid_head">
     <nav>
@@ -48,7 +48,7 @@ hr {
 <!-- *************************************************************************** -->
 
   <h2>
-    <strong>PRODUCT DEVELOPMENT</strong>
+    <strong> </strong>
   </h2>
 
 <!-- <table>
@@ -68,21 +68,21 @@ hr {
 
 <div id="grid_body_indx">
   <bodyFont>
-    <p style="text-align:left;">The fabrication of the joint actuator could be
-       achieved by iterations of rapid-prototyping. It involves:
-       <ul>
-       <li> Choosing the actuator mechanism. </li>
-       <li> Motor Sizing (required output speed and torque).</li>
-       <li> Conceptualizing with sketches and cardboard-mockups. </li>
-       <li> Prototyping with aluminums, plastics, and hand tools.  </li>
+    <h3> Goal </h3>
+    <p class="noMarginAfter" style="text-align:left;">
+      The test device is designed to operate <b>near the wearer's perceptual threshold</b> with small assistance.
+      This would maximize the information transfer, as to how much and when to move the body while still allowing as much of freedom in movement as possible.
+      The two important requirements were:
+       <ul class="customIndent" >
+       <li> Minimal Resistance to Motion </li>
+       <li> High Bandwidth</li>
        </ul>
   </p>
-
   </bodyFont>
 
   <div>
   <center>
-    <img src="hardwaresummary.PNG" width="70%">
+    <img src="HardwareRequirement.png" width="70%">
   </center>
   </div>
 </div>
@@ -90,43 +90,67 @@ hr {
 <div id="grid_body_indx">
   <div>
   <center>
-    <img src="schematic.png" width="70%">
+    <img src="FirstPrototype.png" width="70%">
   </center>
   </div>
 
   <bodyFont>
-    <p> The primary embedded coding was realized with TI microcontrollers.
-      The detailed works include:
-      <ul>
-      <li> Setting the interrupt priorities of the peripherals.</li>
-      <li> Clock configurations. </li>
-      <li> Finite State Machine for SCI real-time communication. </li>
+    <h3> 1st Prototype: Cable-driven Mechanism </h3>
+    <p class="noMarginAfter" style="text-align:left;"> The prototyping strategy for the first stage was to use the built-in resource to minimize the time to verify the concept.
+      So we adopted Maxon's built-in actuator assembly with off-the-shelf motor controller unit. Details are followed:</p>
+      <ul class="customIndent">
+      <li> The key design principle was to minimize the inertia by minimizing the distal mass while delivering the torque thorugh the Bowden cable.</li>
+      <li> We achieved closed-loop active compliance using admittance controller with RoboteQ's built-in position controller </li>
+      <li> Majority of the design consdierations were to make the torque delivery consistent despite of the complex shape of our body (including the cable tensioner). </li>
       </ul>
-    </p>
-
+    <p class="noMarginBefore" style="text-align:left;"> This prototype gave us important lessons. Those lessons were obtained from observing limitations of <b>low bandwidth</b> due to elasticity of cable,
+      <b>backlash</b> due to distance between the two pulleys, and limited access to the internal control loop for <b>mitigating cable friction</b>. </p>
   </bodyFont>
 </div>
 
+
 <div id="grid_body_indx">
   <bodyFont>
-    <p> The product's key feature is to figure out the Initial Pose Detection of the BLDC motor without using the hall sensor. This was achieved by:
-    <ul>
-    <li> Pre-define the variable of the index pin of the Optical Encoder.</li>
-    <li> As powering up the actuator system (and encoder), let the wearer swing the arm until hitting the index pin. </li>
-    <li> As soon as hitting the index pin, the mechanical position is refreshed with the corrected position. </li>
-    <li> The electrical angle is also updated according to the pole-pair number of the BLDC motor.</li>
+    <h3> 2nd Prototype: Belt-driven Mechanism </h3>
+    <p class="noMarginAfter" style="text-align:left;"> The next iteration of prototype reflected the lessons. Now the two gear system is connected with the timing pulley,
+      with the shorter distance on the rigid platform. The tensioner pulley was introduced to balance the belt sagging and the shaft's friction. Details are followed:  </p>
+    <ul class="customIndent">
+    <li> We switched the MCU to more powerful one.</li>
+    <li> The in-runner BLDC was changed to out-runner bancake motor.</li>
+    <li> We introduced custom-made hall sensor and kit optical encoder for more compact design.</li>
     </ul>
-   </p>
-
-
+    <p class="noMarginBefore" style="text-align:left;"> From this prototype, we learned that having the loadcell for the admittance controller did not provide high
+       backdriveability we want. Thus, we replaced the admittance controller that requires both force sensor and position sensor into a simpler controller with only the position sensor.
+      Most importantly, we learned how to run and customize Brushless DC motor from this experience. </p>
   </bodyFont>
 
   <div>
   <center>
-    <img src="indexPinReset.png" width="70%">
+    <img src="SecondPrototype.png" width="70%">
   </center>
   </div>
 </div>
+
+<div id="grid_body_indx">
+  <div>
+  <center>
+    <img src="ThirdPrototype.png" width="70%">
+  </center>
+  </div>
+
+  <bodyFont>
+    <h3> 3rd Prototype: Direct-drive Mechanism </h3>
+    <p class="noMarginAfter" style="text-align:left;"> As we chose direct-drive mechanism for the final prototyping stage, we needed another way to size the actuator,
+      other than inverse kinematics. So we ran pilot test and found peceptual torque to be ~0.5Nm. Thus, a large out-runner BLDC motor was selected. Details are followed:</p>
+      <ul class="customIndent">
+      <li> For the heat problem, we tested the motor for several stall condition and decided to attach mini fans.</li>
+      <li> Instead of using default TI Motorware Library's feature, we implemented optical index encoder for detecting the motor's electrical position. </li>
+      <li> To make the actuator more transparent, we handled the torque ripple problem by applying inverse PWM waves. </li>
+      </ul>
+  </bodyFont>
+</div>
+
+
 
   <h3> HARDWARE DEMONSTRATION </h3>
   <bodyFont>
@@ -143,7 +167,7 @@ hr {
   Your browser does not support the video tag.
   </video>
 <!-- <br> -->
-  <video width="320" height="240" autoplay muted loop>
+  <!-- <video width="320" height="240" autoplay muted loop>
     <source src="hardwareDemo_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
   </video>
@@ -151,9 +175,9 @@ hr {
   <video width="320" height="240" autoplay muted loop>
     <source src="hardwareDemo_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
-  </video>
+  </video> -->
 
-  <h3> PROTOTYPES </h3>
+  <!-- <h3> PROTOTYPES </h3>
 <div id="grid_body_indx">
   <bodyFont>
     <p> Prototyped various actuator mechanisms, including:
@@ -171,8 +195,46 @@ hr {
   <center>
     <img src="prototype.PNG" width="50%">
   </center>
-  </div>
+  </div> -->
+
+    <!-- use three.js for the 3d model file.  -->
+    <!-- <canvas id ="canvas" width = "300" height = "300"></canvas>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+          "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import {GLTFLoader} from 'GLTFLoader';
+      import * as THREE from 'three';
+
+      let scene = new THREE.Scene();
+      let renderer = new THREE.WebGLRenderer(
+        canvas : document.querySelector('#canvas')
+      );
+
+      let camera = new THREE.PerspectiveCamera(30,1);
+      camera.position.set(0,0,0)
+
+      let loader = new GLTFLoader();
+      loader.load('elbow_forceS_LR.gltf', funtion(gltf){
+        scene.add(gltf.scene);
+        renderer.render(scene, camera);
+      });
+
+      renderer.render(scene);
+    </script> -->
+
+
+
+
 </div>
+
+
 
 <p>
    <u>Kim, H.,</u> Asbeck, A., <b><i>"An elbow exoskeleton for haptic feedback made with a direct drive hobby motor."</i></b> HardwareX 8, e00153(2020).  <a href="https://www.sciencedirect.com/science/article/pii/S2468067220300626" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a>

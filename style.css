@@ -157,10 +157,9 @@ body {
 
 }
 
-
+/* three different paragraph styles*/
 p {
   margin-left: 40px;
-
   /* width: 600px; */
   /* margin: 0 auto; */
   font-family: 'Roboto', sans-serif;
@@ -169,8 +168,35 @@ p {
   font-variant-ligatures: normal;
   /* font-size: 2rem; */
   letter-spacing: 1.2px;
-
 }
+.noMarginAfter {
+  margin-left: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-variant-ligatures: normal;
+  letter-spacing: 1.2px;
+  margin-bottom:0;
+}
+.noMarginBefore {
+  margin-left: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-variant-ligatures: normal;
+  letter-spacing: 1.2px;
+  margin-top:0;
+}
+
+/* indent for bullet points */
+.customIndent {
+  padding-left: 80px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-variant-ligatures: normal;
+  letter-spacing: 1.2px;
+  margin-top:0; margin-bottom:0
+}
+
+
 
 /* div {
  text-align: justify;
