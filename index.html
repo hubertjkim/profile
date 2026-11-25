@@ -1,233 +1,237 @@
-<!doctype html>
-
-<!-- https://www.youtube.com/watch?v=M1eQFIBY2vI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=10 -->
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Hubert's Portfolio </title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400&display=swap');
-hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-}
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hubert Kim, Ph.D.</title>
+<meta name="description" content="Hubert Kim, Ph.D. Robotics integration engineer working on sensing, estimation and control for precision manipulation.">
+<meta property="og:title" content="Hubert Kim, Ph.D. · Robotics Integration Engineer">
+<meta property="og:description" content="Sensing, estimation and control for precision manipulation: the layer between robot plans and hardware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a precision engineer's monograph, quiet and exact
+   IDEA an engineering drawing sheet: a coarse path that hands off to fine correction and lands inside a tolerance ring
+   PICTURE the Home Robot Cell's coarse-to-fine design target, beside the name
+   COLOUR white ground, black ink, concrete #d8d8d4 planes, safety yellow only on the tolerance ring and focus layers
+   TYPE Hanken Grotesk 500 display, Hanken Grotesk 400 text
+   LAYOUT laptop: name, proof and links left, drawing right; phone: name, drawing, text */
+:root{color-scheme:light dark;--bg:#ffffff;--ink:#111111;--mut:#55554f;--plane:#d8d8d4;--line:#c4c4bf;--focus:#111111;--y:#ffe600}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1a19;--ink:#ecebe6;--mut:#a9a8a0;--plane:#2a2a28;--line:#3a3a37;--focus:#ffe600}}
+:root[data-theme=light]{color-scheme:light;--bg:#ffffff;--ink:#111111;--mut:#55554f;--plane:#d8d8d4;--line:#c4c4bf;--focus:#111111}
+:root[data-theme=dark]{color-scheme:dark;--bg:#1a1a19;--ink:#ecebe6;--mut:#a9a8a0;--plane:#2a2a28;--line:#3a3a37;--focus:#ffe600}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 "Hanken Grotesk",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;background:var(--ink);color:var(--bg);padding:10px 14px;z-index:10}
+.skip:focus{top:8px}
+.band{padding-block:clamp(28px,4vw,60px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.in{max-width:1180px;margin:0 auto}
+nav{border-bottom:1px solid var(--line);background:var(--bg)}
+nav .in{display:flex;flex-wrap:wrap;gap:4px 20px;align-items:center;padding:10px 0}
+nav b{font-weight:700;margin-right:auto}
+nav a{text-decoration:none;color:var(--mut);padding:8px 0}
+nav a:hover{color:var(--ink);text-decoration:underline}
+@media(min-width:900px){nav{position:sticky;top:0;z-index:5}}
+@media(max-width:600px){nav b{display:none}}
+.hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:center}
+h1{font-weight:500;font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+h2{font-weight:500;font-size:clamp(28px,3.4vw,36px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance}
+h3{font-size:19px;font-weight:700;margin:0 0 4px}
+.role{font-size:19px;color:var(--mut);margin:0 0 14px}
+.proof{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 16px;padding:0;list-style:none;font-weight:500}
+.proof li{border-left:3px solid var(--ink);padding-left:8px;margin:0}
+.lede{max-width:62ch;margin:0 0 20px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--ink);text-decoration:none;font-weight:500}
+.links a:first-child{background:var(--ink);color:var(--bg)}
+.fig{position:relative;min-height:400px;background:var(--plane)}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+svg text{font:14px "Hanken Grotesk",sans-serif;fill:var(--ink);paint-order:stroke;stroke:var(--plane);stroke-width:4px}
+.cap{font-size:14px;color:var(--mut);margin-top:8px}
+.plane{background:var(--plane)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px)}
+.stack{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.layer{display:grid;grid-template-columns:4.5em minmax(0,9em) minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline;margin:0}
+.layer .k{font-weight:700}
+.layer.me{background:var(--y);color:#111;padding-inline:10px;margin-inline:-10px}
+.legend{font-size:14px;color:var(--mut);margin:8px 0 0}
+.legend i{display:inline-block;width:12px;height:12px;background:var(--y);border:1px solid #111;vertical-align:-1px;margin-right:6px}
+.job{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr);gap:clamp(16px,3vw,40px);padding:22px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:1px solid var(--ink)}
+.meta{color:var(--mut);font-size:15px}
+ul{margin:8px 0 0;padding-left:1.1em}
+li{margin:4px 0}
+.scroll{overflow-x:auto}
+.st{width:100%;border-collapse:collapse;font-size:15px;margin-top:22px}
+.st th,.st td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.st th{font-weight:700;border-bottom:1px solid var(--ink)}
+.tag{display:inline-block;padding:1px 8px;font-size:13px;font-weight:700;white-space:nowrap;border:1px solid currentColor}
+.tag.ok{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tag.dz{color:var(--mut)}
+.pubs li{margin:8px 0}
+footer{border-top:1px solid var(--ink)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+@media(max-width:860px){.hero .in{display:flex;flex-direction:column;align-items:stretch}.hero .txt{display:contents}.hero h1{order:1}.hero .role{order:2}.fig-wrap{order:3}.hero .proof{order:4}.hero .lede{order:5}.hero .links{order:6}.fig{min-height:320px}.grid2,.job{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.layer{grid-template-columns:3.2em minmax(0,1fr)}.layer .w{grid-column:2}.st{font-size:13px}.st thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.st tr{display:grid;padding-block:8px;border-bottom:1px solid var(--line)}.st td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0}.st td::before{content:attr(data-l);color:var(--mut);flex:none}}
+@media(prefers-reduced-motion:reduce){#tok{display:none}}
+</style>
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Sections"><div class="in"><b>Hubert Kim</b><a href="#experience">Experience</a><a href="#cell">Home Robot Cell</a><a href="#publications">Publications</a><a href="Resume.pdf">Resume</a><a href="#contact">Contact</a></div></nav>
 
-<body style="margin:100px;padding:40px">
+<main id="main">
+<header class="band hero"><div class="in">
+  <div class="txt">
+    <h1>Hubert Kim, Ph.D.</h1>
+    <p class="role">Robotics integration engineer. I work on the layer between a robot's plan and its hardware: sensing, state estimation and control for precision manipulation.</p>
+    <ul class="proof" aria-label="Highlights">
+      <li>3-robot industrial cell, GE Aerospace Research</li>
+      <li>About 250 µm placement</li>
+      <li>About 30% shorter process time</li>
+      <li>4 filed patents</li>
+    </ul>
+    <p class="lede">At GE Aerospace Research I take a three-robot collaborative cell from hardware through middleware toward factory deployment. Separately, on my own time and equipment, I'm building a home robot cell where a vision-language model plans and a System 1 layer I design turns those plans into precise motion.</p>
+    <div class="links"><a href="Resume.pdf">Resume (PDF)</a><a href="#cell">Home Robot Cell</a><a href="mailto:jk.hubert.k@gmail.com">Email</a><a href="https://github.com/hubertjkim">GitHub</a><a href="https://www.linkedin.com/in/hubertjkim">LinkedIn</a></div>
+  </div>
+  <div class="fig-wrap">
+    <div class="fig" role="img" aria-label="Home Robot Cell design target: a learned coarse reach ends inside a handoff region, then short fine corrections aim for a 1 to 2 millimeter tolerance ring"><svg id="s" aria-hidden="true"></svg></div>
+    <p class="cap">Home Robot Cell design target: a learned coarse reach ends inside a handoff region, then short stop-and-capture corrections aim to close the last 1–2 mm.</p>
+  </div>
+</div></header>
 
-  <!-- *************************************************************************** -->
-  <h1>
-    <div style="text-align:center;">
-    Hubert Kim, Ph.D.
-    <br><br>
-    </div>
-  </h1>
-
-  <!-- <div id='active'></div> -->
-  <!-- <div id="grid_head">
-    <nav>
-      <ol>
-        <li><a href="index.html" title="Home" class="visited">Research Experience</a></li>
-        <li><a href="hardwareX.html">Product Developement</a></li>
-        <li><a href="JND.html">Human-centered Research</a></li>
-        <li><a href="JTDstiffness.html">Frequency-domain analysis</a></li>
-      </ol>
-    </nav>
-
-    <div style="text-align:right;">
-      <br>Phone: (917)834-0377 <br>E-mail: jk.hubert.k@gmail.com
-      <br>Resume:<a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>click here</u></a>
-      <br>Linkedin:<a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>click here</u></a>
-      <br>Meetme:<a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>click here</u></a>
-    </div>
-  </div> -->
-  <!-- *************************************************************************** -->
-
-  <div id="grid_body">
-    <img style="padding-right: 0px; float: left; object-fit: scale-down; max-width: 80%; height:auto;" src="Hubert.jpg">
-     <!-- <img src="Hubert.jpg" style="max-width: 200px; object-fit: cover;  " class="center"> -->
-
-  <!-- <h2> <strong>Haptic Researcher | Mechatronicist | Experimental Roboticist</strong> </h2> -->
-
-  <!-- <h3> SUMMARY </h3> -->
-  <bodyFont>
-    <!-- <p style ="margin-top:45px;"> -->
-    <p>
-      Welcome to my personal webpage. <br>
-      I'm a Mechatronics Engineer who earned my Ph.D. degree
-      from the <a href="https://www.assistiveroboticslab.com/" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Assistive Robotics Laboratory (ARL)</a>
-      at Virginia Tech.
-      With
-       <a href="https://autonomyandrobotics.centers.vt.edu/people/asbeck.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dr. Alan Asbeck</a>,
-      we started the hardware robotic laboratory,
-      where I led the Arm Haptic Feedback team throughout the R&D process
-      unto measuring the scientific findings.
-    </p>
-
-    <p class="noMarginAfter"> The objective of my research is to understand the prerequisite elements for <b>"wearable physical trainers"</b> that can provide <b>real-time physical guidance for learning a new motion</b>.
-    Using this technique, the physical training process of "see-learn-try" can be simplified a lot becoming an ultimate solution for in-home therapy. To address this, </p>
-      <ul class="customExtraIndent" >
-       <li>First, we came up with <a href="hardwareX.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">a direct-drive joint actuator</a> that operates near the peceptual threshold range with hardware transparency.</li>
-       <li>Second, we answered a key question for <a href="JND.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">how much torque should we apply</a>  to encourage the wearer's volitional movement.</li>
-       <li>Third, we observed what is the <a href="JTDstiffness.html" class = "hyplnkd" target="_blank" rel="noopener noreferrer">required amount of torque leading to high bandwidth</a> of Human-in-the-looop system.</li>
+<section class="band" id="experience"><div class="in">
+  <h2>Experience</h2>
+  <div class="job">
+    <div><h3>GE Aerospace Research</h3><div class="meta">Automation and integration engineer<br>Niskayuna, NY · Aug 2022 – present<br>Co-inventor on 4 filed patents</div></div>
+    <div>
+      <strong>Autonomous Layup Cell</strong>
+      <ul>
+        <li>Sub-millimeter placement on contoured 3D surfaces (within 10 mil, about 250 µm) with a coarse-to-fine pipeline: CAD-derived deterministic paths for coarse motion, classical image processing on a 2.5-mil optical system for the fine correction.</li>
+        <li>Three collaborative industrial robots in a shared envelope, with collision-free coordinated motion from offline trajectory planning.</li>
+        <li>Built the Python HMI bridging offline planners and real-time robot controllers over TCP/IP. This work moved me from hardware into middleware.</li>
+        <li>About 30% shorter process time through offline programming of motion configuration and reachability; measurement error bounded with GR&amp;R studies; led root-cause analysis on pick-and-place failures.</li>
+        <li>Moving the cell into production with the manual-process teams (3 of the 4 patents).</li>
       </ul>
-    <p class ="noMarginBefore">
-       Though this study is still in preliminary level, this study shows potentials for designing wearable robot <b>in the domain of very small applied torque region for motion training</b>.
-    </p>
+      <p style="margin:14px 0 0"><strong>Confined-space inspection robot</strong></p>
+      <ul>
+        <li>Prototyped a confined-space inspection robot that keeps its structural rigidity, and built a pixel-segmentation pipeline to measure its deflection (1 of the 4 patents).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="job">
+    <div><h3>Virginia Tech</h3><div class="meta">Assistive Robotics Laboratory, Ph.D.<br>2015 – 2021</div></div>
+    <div><ul>
+      <li>Designed a direct-drive BLDC elbow-exoskeleton actuator (500 g, $509 parts) with register-level control of its communication.</li>
+      <li>Used joint-torque feedback to guide arm motion; measured human perception thresholds of 0.1–0.2 N·m under static load and 0.4–0.8 N·m during motion.</li>
+    </ul>
+    <p class="meta" style="margin:10px 0 0">Earlier project pages: <a href="archive/hardwareX.html">exoskeleton actuator</a> · <a href="archive/JND.html">torque perception</a> · <a href="archive/JTDstiffness.html">frequency-domain stiffness</a> · <a href="archive/index.html">full archive</a></p></div>
+  </div>
+  <div class="job">
+    <div><h3>NYU Tandon</h3><div class="meta">Dynamical Systems Laboratory, B.S. research<br>2013 – 2015</div></div>
+    <div><ul>
+      <li>Frequency-domain system identification and impedance analysis of ionic polymer-metal composites; improved energy-harvesting power delivery by more than 60% through impedance matching.</li>
+    </ul></div>
+  </div>
+</div></section>
 
+<section class="band plane" id="cell"><div class="in">
+  <h2>Home Robot Cell: a VLM-planned cell designed for precision</h2>
+  <div class="grid2">
+    <div>
+      <p>Vision-language models and learned policies plan and act at a few hertz, typically with centimeter-level error. Precise tasks need millimeters. This self-funded cell, built on personal time and equipment, is where I work on closing that gap.</p>
+      <p>A UFactory xArm Lite 6 with GELLO teleoperation, a fixed Basler camera and a wrist RealSense D435i run on one 16 GB GPU. Molmo2-ER acts as System 2: it plans and points, but never commands the arm. A behavior-tree System 1 handles precision, timing and safety checks; controller limits and the e-stop sit below it.</p>
+      <p>Each major part (vision-language model, policy, planner, detector) sits behind a defined interface, so it can be swapped as new models come out. Stack: ROS 2, ZMQ, Docker, Drake QP, LeRobot ACT, Isaac Sim, py_trees.</p>
+    </div>
+    <div>
+      <ol class="stack" aria-label="Control layers of the cell, task to safety">
+        <li class="layer"><span class="k">L5</span><span>Task</span><span class="w">Operator command</span></li>
+        <li class="layer"><span class="k">L4</span><span>Plan</span><span class="w">System 2: vision-language model</span></li>
+        <li class="layer me"><span class="k">L3</span><span>Skill</span><span class="w">Behavior tree, coarse-to-fine handoff <span class="sr">(my focus)</span></span></li>
+        <li class="layer me"><span class="k">L2</span><span>Primitive</span><span class="w">Action chunk, servo step, estimator <span class="sr">(my focus)</span></span></li>
+        <li class="layer me"><span class="k">L1</span><span>Control</span><span class="w">QP / MPC, joint and rate limits <span class="sr">(my focus)</span></span></li>
+        <li class="layer"><span class="k">L0</span><span>Safety</span><span class="w">Controller limits, e-stop</span></li>
+      </ol>
+      <p class="legend" aria-hidden="true"><i></i>My focus: System 1</p>
+    </div>
+  </div>
+  <div class="scroll">
+  <table class="st">
+    <caption class="sr">Status of each part of the Home Robot Cell</caption>
+    <thead><tr><th scope="col">Piece</th><th scope="col">What it does</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Piece">System 2 → System 1 plan channel</td><td data-l="What">Schema-validated plans, replanning after failure, stale-plan rejection</td><td data-l="Status"><span class="tag ok">Verified live</span></td></tr>
+      <tr><td data-l="Piece">Molmo2-ER at 4-bit</td><td data-l="What">About 4.8 GB and 1.3 s per query on the shared GPU</td><td data-l="Status"><span class="tag ok">Measured</span></td></tr>
+      <tr><td data-l="Piece">Isaac Sim digital twin</td><td data-l="What">Mirrors live teleoperation</td><td data-l="Status"><span class="tag ok">Built</span></td></tr>
+      <tr><td data-l="Piece">Drake QP control layer</td><td data-l="What">One reference source at a time, joint and rate limits</td><td data-l="Status"><span class="tag">Hardware, limited scope</span></td></tr>
+      <tr><td data-l="Piece">Kalman estimator for fine alignment</td><td data-l="What">Fuses kinematic motion with gated captures; cut the 95th-percentile captures needed from 13 to 6</td><td data-l="Status"><span class="tag">Simulation</span></td></tr>
+      <tr><td data-l="Piece">Coarse-to-fine handoff</td><td data-l="What">Detector lock, feature error, margin, angle band, arm settled</td><td data-l="Status"><span class="tag dz">Designed</span></td></tr>
+      <tr><td data-l="Piece">ACT coarse reach</td><td data-l="What">Trained on public example tasks so far; cell-specific training in progress</td><td data-l="Status"><span class="tag dz">In progress</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div></section>
 
-
-   <p>
-    As a researcher from the small lab, I covered all the prerequisite experimental setups for the experiment,
-    from designing and fabricating the exoskeleton to programming User Interface and data processing. The primary approach in hardware design was to <b>"prototype to learn something"</b>.
-  </p>
-
-
-
-      <!-- <p>  To understand how a new haptic
-      feedback device guides a person's joint to a certain angle, I wish to
-      develop the idea into the following questions further. 1) When
-      people start noticing that the device is providing force to their
-      joint, and 2) how sensitive people are to this type of feedback.
-      </p> -->
-
-      <p>
-        Previously, I researched in
-        <a href="https://wp.nyu.edu/dsl/" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dynamics Systems Laboratory</a>
-        at NYU Tandon under the supervision of
-        <a href="https://engineering.nyu.edu/faculty/maurizio-porfiri" class = "hyplnkd" target="_blank" rel="noopener noreferrer">Dr. Maurizio Porfiri</a>.
-        My primary role was to apply Signal Processing techniques on smart materials (i.e., Piezoelectric) to characterize the material's electromechanical property
-         and validate the physics-based models. Specifically, I ran impedance analyses on the material using potentiostat and conducted a system identification technique.
-      </p>
-
-  </bodyFont>
-</div>
-
-  <!-- <h3> RECENT PROJECT </h3> -->
-
-  <!-- <div id="grid_body"> -->
+<section class="band" id="publications"><div class="in grid2">
   <div>
-    <bodyFont>
-      <!-- <p>As pursuing my ph.D. under the supervision of Dr. Alan T. Asbeck in Virginia Tech,
-        I developed a wearable testbed to understand the human perceptual
-        property against kinesthetic sensations (a). The idea behind the project is
-        to <b>implement the kinesthetic cue as a haptic information
-          transfer to guide/correct arm motion</b>, just like the physical
-        therapists aiding patients' vonlutray motion.</p> -->
-
-        <!-- <p> My recent research topic has been evaluating the foundational discoveries
-          for a portable daily-life healthcare product, a wearable physical therapist.
-        </p> -->
-
-        <br>
-        <h3> Publications and presentation: </h3>
-        <p>
-        <ul>
-          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"The Effects of Torque Magnitude and Stiffness in Arm Guidance through Joint Torque Feedback."</i></b> in in IEEE Access, doi: 10.1109/ACCESS.2022.3141981.<a href="https://ieeexplore.ieee.org/document/9676678" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
-          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"Just Noticeable Differences for Elbow Joint Torque Feedback."</i></b> Sci Rep 11, 23553 (2021) . <a href="https://www.nature.com/articles/s41598-021-02630-3" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
-          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"An elbow exoskeleton for haptic feedback made with a direct drive hobby motor."</i></b> HardwareX 8, e00153(2020).  <a href="https://www.sciencedirect.com/science/article/pii/S2468067220300626" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
-          <li>  <u>Kim, H.,</u> Guo, H., Asbeck, A., <b><i>"Just Noticeable Differences for Joint Torque Feedback During Static Poses."</i></b> 2020 IEEE International Conference on Robotics and Automation (ICRA), 2020, pp. 11096-11102. <a href="https://ieeexplore.ieee.org/document/9197537" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
-          <li>  <u>Kim, H.,</u> Asbeck, A., <b><i>"Light-weight Exoskeleton for Haptic Feedback."</i></b> Presented at IEEE/RSJ International Conference on Intelligent Robots and Systems, Daejeon, Republic of Korea, Oct 9-14, 2016; poster 1832</a></li>
-          <li> <u>Kim, H.,</u> Cha, Y., Porfiri, M.; 2016; <b><i>”Voltage attenuation along the electrodes of ionic polymer metalcomposites.”</i></b> J.of Intell Mater Syst Struct, 27(17), 2426-2430 <a href="https://journals.sagepub.com/doi/abs/10.1177/1045389X15620045?journalCode=jima" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a></li>
-          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2013: <b><i>"Energy harvesting from underwater base excitation of a piezoelectric composite beam."</i></b> Smart Materials and Structures 22(11), 115026 <a href=" https://iopscience.iop.org/article/10.1088/0964-1726/22/11/115026/meta" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
-          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2014: <b><i>"Influence of temperature on the impedance of ionic polymer metal composites."</i></b> Materials Letters 133, 179-182 <a href="https://www.researchgate.net/publication/264050709_Influence_of_temperature_on_the_impedance_of_ionic_polymer_metal_composites" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
-          <li> Cha, Y., <u>Kim, H.,</u> Porfiri, M., 2014: <b><i>"Matching the impedance of ionic polymer metal composites for energy harvesting."</i></b> Smart Materials and Structures 23(12), 127002 <a href="https://www.researchgate.net/publication/268156978_Matching_the_impedance_of_ionic_polymer_metal_composites_for_energy_harvesting" class = "hyplnkd"  target="_blank" rel="noopener noreferrer">[Link]</a> </li>
-          <li> Cha, Y., Chae, W., <u>Kim, H.,</u> Walcott, H., Peterson, S.: <b><i>"Energy harvesting from a piezoelectric biomimetic fish tail."</i></b> Renewable Energy 86, 449–458 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0960148115301737" class = "hyplnkd">[Link]</a> </li>
-        </ul>
-        </p>
-       <!-- <p>When Dr. Asbeck and I started Assistive Robotics Lab in Fall 2015,
-        our high-level goal was to realize a comfortable, light-weight, and low-
-        cost wearable device for assisting our daily life. In contrast to the
-        full-body-support system, <b>the device only provides partial
-          guidance</b> to the user, with a torque smaller than the human
-        strength. -->
-        <!-- After several prototypes of the exoskeleton, however, we
-        realized that it would have been better if there existed any criteria on
-        a kinesthetic cue in the scope of haptic delivery to be the guideline
-        in designing exoskeleton for motion correction. Thus, handling the
-        design problem into the perceptual level, rather than approaching it
-        as finding the minimum volume of the actuator or manipulator mechanism,
-        would be the first step toward the partial assistance system.  -->
-
-      <!-- <p>The new device I made uses a soft sleeve to apply small
-      forces to a person's joint<font color="blue"><b>(a)</b></font>. The device should feel like a person gently
-      guiding your arm to a certain position. The device subjects wear apply
-       forces to the elbow of less than 5% of the maximum force that a typical
-       adult male can generate at their elbow.
-
-        Challenges of hardware design here (hardware requirements)
-        (torque stiffness and the parasitic torque)
-
-        The test result easily transferable to other exoskeleton design process for the elbow joint.
-
-
-      Developing a wearable device that requires knowledge of Vector
-       Control in motor control ( <font color="blue"><b>(b)</b></font> and  <font color="blue"><b>(c)</b></font>), as well as basic human physiology as how to
-       perceive extrinsic kinesthetic stimuli (i.e. joint proprioceptors).</p> -->
-    </bodyFont>
-
-    <!-- <div>
-      <center>
-        <img src="researchgoal.PNG" width="70%" style="max-width: 500px;">
-      </center>
-    </div> -->
+    <h2>Publications and patents</h2>
+    <ul class="pubs">
+      <li>Kim, H., Asbeck, A. The effects of torque magnitude and stiffness in arm guidance through joint torque feedback. <em>IEEE Access</em>, 2022.</li>
+      <li>Kim, H., Asbeck, A. Just noticeable differences for elbow joint torque feedback. <em>Scientific Reports</em>, 2021.</li>
+      <li>Kim, H., Asbeck, A. An elbow exoskeleton for haptic feedback made with a direct drive hobby motor. <em>HardwareX</em>, 2020.</li>
+      <li>Co-inventor on 4 filed patents, GE Aerospace Research.</li>
+    </ul>
   </div>
-
-  <br><br><br>
-  <hr>
-  <div id="grid_body_bottom4">
-  <div> <a href="Resume.pdf" target="_blank" title="Resume pdf file"><u>Resume</u></a> </div>
-  <div> <a href="mailto:jk.hubert.k@gmail.com" subject="subject text" target="_blank" title="Resume pdf file"><u>E-mail me</u></a> </div>
-  <div> <a href="https://www.linkedin.com/in/hubertjkim/" target="_blank" title="Link to Linkedin"><u>LinkedIn</u></a> </div>
-  <div> <a href="https://doodle.com/mm/hubertkim/human-subject-testing" target="_blank" title="Link to Doodle Schedule"><u>MeetMe</u></a> </div>
-  <div> (917) 834-0377 </div>
+  <div>
+    <h2>Education and awards</h2>
+    <ul>
+      <li>Ph.D., Mechanical Engineering, Virginia Tech, 2021</li>
+      <li>B.S., Mechanical Engineering, cum laude, NYU Tandon, 2015</li>
+      <li>GE Aerospace Research: Bravo Award for delivering quality on schedule (Oct 2026), Spotlight (2025), Patent Award (2025), Applause (2024), Bravo (2023)</li>
+      <li>ICTAS Doctoral Scholarship, Virginia Tech, 2016–2020</li>
+    </ul>
   </div>
+</div></section>
+</main>
 
-  <!-- <h3> FORMER PROJECT </h3> -->
+<footer class="band" id="contact"><div class="in">
+  <div><strong>Hubert Kim</strong><br>Albany, NY</div>
+  <div><a href="mailto:jk.hubert.k@gmail.com">jk.hubert.k@gmail.com</a><br><a href="https://www.linkedin.com/in/hubertjkim">linkedin.com/in/hubertjkim</a> · <a href="https://github.com/hubertjkim">github.com/hubertjkim</a></div>
+</div></footer>
 
-  <!-- <div id="grid_body"> -->
-  <!-- <div>
-    <bodyFont> -->
-
-
-      <!-- <p> -->
-      <!-- Both IPMCs and Piezoelectric composites share the same property of
-      generating electricity when it is deformed and actuating when it is electrified.
-      The primary difference is the medium deliveryng those electricity. Unlike the electron charge of the Piezoelectric composite, IPMCs
-      requires ions to transfer the electricity, and therefore only functions under ionized water.
-      Therefore, setting the proper density of the IPMCs when fabriacting plays the key role and requires much practice to
-      make a successful materials.</p> -->
-
-      <!-- <p> All the experimental setup I designed was to investigate/measure the smart materials in oscillatory motion, then to be analyzed in the
-        time and frequency domain in terms of transfer functions.
-        It includes: underwater base excitation of the Piezoelectric
-        composite  2) underwater biomimetic shark swimming with Piezoelectric
-        composite attached, and 3) impedance matching test for IPMCs. </p>
-
-        <p> The data was collected with a Data Acquisition board from National
-          Instrument and high-speed camera, then post-processed with
-        MATLAB and Mathematica, to be compared with the theoretical model. </p> -->
-    <!-- </bodyFont> -->
-
-    <!-- <div>
-      <center>
-        <img src="old_research_summary.png" width="70%" style="max-width: 500px;">
-      </center>
-    </div> -->
-  </div>
-
+<script>
+{
+const s=document.getElementById('s');
+const draw=()=>{
+  const W=s.clientWidth,H=s.clientHeight,sm=W<520;
+  if(!W||!H)return;
+  const tx=W*0.74,ty=H*0.58,hr=Math.min(W,H)*0.17,tr=Math.max(10,hr*0.2);
+  const sx=W*0.08,sy=H*0.18,ex=tx-hr*0.62,ey=ty-hr*0.55;
+  const c1x=W*0.18,c1y=H*0.86,c2x=W*0.42,c2y=H*0.02;
+  let px=ex,py=ey;const steps=[];
+  for(let i=0;i<5;i++){const nx=tx+(px-tx)*0.42+(i%2?3:-3),ny=ty+(py-ty)*0.42;steps.push([px,py,nx,ny]);px=nx;py=ny}
+  const grid=[];for(let x=24;x<W;x+=24)grid.push(`<line x1="${x}" y1="0" x2="${x}" y2="${H}"/>`);for(let y=24;y<H;y+=24)grid.push(`<line x1="0" y1="${y}" x2="${W}" y2="${y}"/>`);
+  s.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  s.innerHTML=`
+  <g stroke="var(--line)" stroke-width="0.6" opacity=".7">${grid.join('')}</g>
+  <circle cx="${tx}" cy="${ty}" r="${hr}" fill="var(--bg)" stroke="var(--ink)" stroke-dasharray="5 5"/>
+  <path id="cp" d="M${sx},${sy} C${c1x},${c1y} ${c2x},${c2y} ${ex},${ey}" fill="none" stroke="var(--ink)" stroke-width="3"/>
+  <circle cx="${sx}" cy="${sy}" r="6" fill="var(--ink)"/>
+  ${steps.map(([a,b,c,d])=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="var(--ink)" stroke-width="1.6"/><circle cx="${c}" cy="${d}" r="3.2" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.4"/>`).join('')}
+  <circle cx="${tx}" cy="${ty}" r="${tr}" fill="var(--y)" stroke="#111" stroke-width="1.2"/>
+  <line x1="${tx-tr-10}" y1="${ty}" x2="${tx+tr+10}" y2="${ty}" stroke="#111"/><line x1="${tx}" y1="${ty-tr-10}" x2="${tx}" y2="${ty+tr+10}" stroke="#111"/>
+  <circle id="tok" r="5" fill="var(--y)" stroke="#111"><animateMotion dur="4s" repeatCount="2" fill="freeze"><mpath href="#cp"/></animateMotion></circle>
+  <text x="${sx+12}" y="${sy-10}">${sm?'Coarse: learned':'Coarse: learned reach (ACT)'}</text>
+  <text x="${tx}" y="${ty-hr-12}" text-anchor="middle">Handoff region</text>
+  <text x="${tx}" y="${ty+hr+22}" text-anchor="middle">${sm?'Fine: 1–2 mm target':'Fine: stop, capture, correct → 1–2 mm target'}</text>`;
+};
+if('ResizeObserver' in window){const ro=new ResizeObserver(draw);ro.observe(s)}else{draw();addEventListener('resize',draw)}
+}
+</script>
 </body>
-
 </html>
