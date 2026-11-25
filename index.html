@@ -144,7 +144,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betwe
   <h2>Home Robot Cell: a VLM-planned cell designed for precision</h2>
   <div class="grid2">
     <div>
-      <p>Vision-language models and learned policies plan and act at a few hertz, typically with centimeter-level error. Precise tasks need millimeters. This self-funded cell, built on personal time and equipment, is where I work on closing that gap.</p>
+      <p>Vision-language models and learned policies plan and act at a few hertz, typically with centimeter-level error. Precise tasks need millimeters. This self-funded cell, built on personal time and equipment, is where I work on closing that gap. The target task is automated PCBA: aligning a through-hole component's pins over the board and inserting them.</p>
       <p>A UFactory xArm Lite 6 with GELLO teleoperation, a fixed Basler camera and a wrist RealSense D435i run on one 16 GB GPU. Molmo2-ER acts as System 2: it plans and points, but never commands the arm. A behavior-tree System 1 handles precision, timing and safety checks; controller limits and the e-stop sit below it.</p>
       <p>Each major part (vision-language model, policy, planner, detector) sits behind a defined interface, so it can be swapped as new models come out. Stack: ROS 2, ZMQ, Docker, Drake QP, LeRobot ACT, Isaac Sim, py_trees.</p>
     </div>
@@ -172,6 +172,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betwe
       <tr><td data-l="Piece">Kalman estimator for fine alignment</td><td data-l="What">Fuses kinematic motion with gated captures; cut the 95th-percentile captures needed from 13 to 6</td><td data-l="Status"><span class="tag">Simulation</span></td></tr>
       <tr><td data-l="Piece">Coarse-to-fine handoff</td><td data-l="What">Detector lock, feature error, margin, angle band, arm settled</td><td data-l="Status"><span class="tag dz">Designed</span></td></tr>
       <tr><td data-l="Piece">ACT coarse reach</td><td data-l="What">Trained on public example tasks so far; cell-specific training in progress</td><td data-l="Status"><span class="tag dz">In progress</span></td></tr>
+      <tr><td data-l="Piece">Tactile sensing at the gripper</td><td data-l="What">Contact, in-hand offset and slip for pin insertion; added after the vision scaffold is proven</td><td data-l="Status"><span class="tag dz">Planned</span></td></tr>
     </tbody>
   </table>
   </div>
